@@ -41,7 +41,7 @@ module.exports = {
     },
     "assetsTimestamp": {
       "type": "confirm",
-      "default": fasle,
+      "default": false,
       "message": "Using timestamp replace hash to control assets version? It's will be controled by server side. "
     },
     "timestampTemplate": {
