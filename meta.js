@@ -25,7 +25,7 @@ module.exports = {
       "message": "Author"
     },
     "assetsPublicPath": {
-      "type": "string",
+      "type": "list",
       "choices": [
         {
           "name": "Default: relative path of project",
@@ -42,7 +42,7 @@ module.exports = {
     "assetsTimestamp": {
       "type": "confirm",
       "default": false,
-      "message": "Using timestamp replace hash to control assets version? It's will be controled by server side. "
+      "message": "Using timestamp replace hash to control assets version? It's will be controled by server side. Default false."
     },
     "timestampTemplate": {
       "when": "assetsTimestamp",
