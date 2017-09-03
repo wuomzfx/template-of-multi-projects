@@ -24,6 +24,32 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
+    "assetsPublicPath": {
+      "type": "string",
+      "choices": [
+        {
+          "name": "Default: relative path of project",
+          "value": "relative",
+          "short": "/"
+        },
+        {
+          "name": "Absolute path of DXY",
+          "value": "https://assets.dxycdn.com/gitrepo/business-projects/dist/",
+          "short": "dxycdn"
+        }
+      ]
+    },
+    "assetsTimestamp": {
+      "type": "confirm",
+      "default": fasle,
+      "message": "Using timestamp replace hash to control assets version? It's will be controled by server side. "
+    },
+    "timestampTemplate": {
+      "when": "assetsTimestamp",
+      "type": "string",
+      "message": "template of timestamp executed by server side. default laravel template",
+      "default": "{{time()}}"
+    },
     "build": {
       "type": "list",
       "message": "Vue build",
