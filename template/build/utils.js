@@ -2,10 +2,13 @@ var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
+exports.assetsPath = function (_path, isEntry) {
+  var envConfig = process.env.NODE_ENV === 'production' ? config.build : config.dev
+  var assetsSubDirectory = envConfig.assetsSubDirectory
+  if (isEntry && envConfig.assetsVersionMode !== 'hash') {
+    _path = _path.split('.').filter(p => p.indexOf('hash]') === -1).join('.')
+    _path += `?t=${envConfig.assetsVersionMode}`
+  }
   return path.posix.join(assetsSubDirectory, _path)
 }
 
