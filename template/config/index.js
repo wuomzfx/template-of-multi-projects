@@ -1,8 +1,10 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 var projectName = path.resolve(__dirname, '..').split(path.sep).pop()
+var projectsRoot = path.resolve(__dirname, '../../../')
 
 module.exports = {
+  projectsRoot,
   build: {
     // 静态资源通过时间戳or哈希值更新，如果是时间戳，设置为后台输出的模版语言
     {{#if assetsTimestamp}}
@@ -11,8 +13,8 @@ module.exports = {
     assetsVersionMode: 'hash',
     {{/if}}
     env: require('./prod.env'),
-    index: path.resolve(__dirname, `../../../dist/${projectName}/index.html`),
-    assetsRoot: path.resolve(__dirname, '../../../dist/'),
+    index: `${projectsRoot}/dist/${projectName}/index.html`,
+    assetsRoot: `${projectsRoot}/dist/`,
     assetsSubDirectory: `${projectName}/static`,
     assetsPublicPath: '{{ assetsPublicPath }}',
     productionSourceMap: true,
